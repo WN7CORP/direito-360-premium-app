@@ -1,19 +1,14 @@
-
 import { useState, useEffect } from "react";
 import { Star, CheckCircle, Smartphone, Download, BookOpen, Headphones, Heart, FileText, GraduationCap, Scale, MapPin, Monitor, Crown, Zap, Shield } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-
 const Index = () => {
   const [userAgent, setUserAgent] = useState("");
-
   useEffect(() => {
     setUserAgent(navigator.userAgent);
   }, []);
-
   const isAndroid = /Android/i.test(userAgent);
   const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
-
   const handlePremiumClick = () => {
     if (isAndroid) {
       window.open("https://play.google.com/store/apps/details?id=br.com.app.gpu2994564.gpub492f9e6db037057aaa93d7adfa9e3e0", "_blank");
@@ -23,27 +18,53 @@ const Index = () => {
       window.open("https://play.google.com/store/apps/details?id=br.com.app.gpu2994564.gpub492f9e6db037057aaa93d7adfa9e3e0", "_blank");
     }
   };
-
-  const premiumFeatures = [
-    { icon: <Crown className="h-5 w-5" />, text: "Pagamento único - sem mensalidades" },
-    { icon: <Shield className="h-5 w-5" />, text: "Sem anúncios" },
-    { icon: <Scale className="h-5 w-5" />, text: "Vade Mecum Pro com comentários em áudio" },
-    { icon: <Heart className="h-5 w-5" />, text: "Opção de favoritar conteúdos" },
-    { icon: <FileText className="h-5 w-5" />, text: "Sistema de anotações personalizadas" },
-    { icon: <GraduationCap className="h-5 w-5" />, text: "Vantagens exclusivas em cursos jurídicos" },
-    { icon: <Headphones className="h-5 w-5" />, text: "JuriCast Pro com mais de 100 episódios" },
-    { icon: <BookOpen className="h-5 w-5" />, text: "Aulas em áudio das matérias de direito" },
-    { icon: <CheckCircle className="h-5 w-5" />, text: "Mais de 500 questões da OAB" },
-    { icon: <FileText className="h-5 w-5" />, text: "10 simulados completos da OAB" },
-    { icon: <BookOpen className="h-5 w-5" />, text: "Biblioteca com mais de 300 livros jurídicos" },
-    { icon: <Download className="h-5 w-5" />, text: "Opção de download para acesso offline" },
-    { icon: <FileText className="h-5 w-5" />, text: "Mais de 30 mil modelos de petições" },
-    { icon: <MapPin className="h-5 w-5" />, text: "Resumos e mapas mentais exclusivos" },
-    { icon: <Monitor className="h-5 w-5" />, text: "Versão desktop disponível" }
-  ];
-
-  return (
-    <div className="min-h-screen bg-black text-white">
+  const premiumFeatures = [{
+    icon: <Crown className="h-5 w-5" />,
+    text: "Pagamento único - sem mensalidades"
+  }, {
+    icon: <Shield className="h-5 w-5" />,
+    text: "Sem anúncios"
+  }, {
+    icon: <Scale className="h-5 w-5" />,
+    text: "Vade Mecum Pro com comentários em áudio"
+  }, {
+    icon: <Heart className="h-5 w-5" />,
+    text: "Opção de favoritar conteúdos"
+  }, {
+    icon: <FileText className="h-5 w-5" />,
+    text: "Sistema de anotações personalizadas"
+  }, {
+    icon: <GraduationCap className="h-5 w-5" />,
+    text: "Vantagens exclusivas em cursos jurídicos"
+  }, {
+    icon: <Headphones className="h-5 w-5" />,
+    text: "JuriCast Pro com mais de 100 episódios"
+  }, {
+    icon: <BookOpen className="h-5 w-5" />,
+    text: "Aulas em áudio das matérias de direito"
+  }, {
+    icon: <CheckCircle className="h-5 w-5" />,
+    text: "Mais de 500 questões da OAB"
+  }, {
+    icon: <FileText className="h-5 w-5" />,
+    text: "10 simulados completos da OAB"
+  }, {
+    icon: <BookOpen className="h-5 w-5" />,
+    text: "Biblioteca com mais de 300 livros jurídicos"
+  }, {
+    icon: <Download className="h-5 w-5" />,
+    text: "Opção de download para acesso offline"
+  }, {
+    icon: <FileText className="h-5 w-5" />,
+    text: "Mais de 30 mil modelos de petições"
+  }, {
+    icon: <MapPin className="h-5 w-5" />,
+    text: "Resumos e mapas mentais exclusivos"
+  }, {
+    icon: <Monitor className="h-5 w-5" />,
+    text: "Versão desktop disponível"
+  }];
+  return <div className="min-h-screen bg-black text-white">
       <div className="container mx-auto px-4 py-8 max-w-6xl">
         {/* Hero Section */}
         <div className="text-center mb-12">
@@ -73,10 +94,7 @@ const Index = () => {
               <div className="text-gray-300 text-sm">Pagamento único • Sem mensalidades</div>
             </div>
             
-            <Button 
-              onClick={handlePremiumClick}
-              className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 text-lg transition-all duration-300"
-            >
+            <Button onClick={handlePremiumClick} className="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-4 text-lg transition-all duration-300">
               <Crown className="h-5 w-5 mr-2" />
               SER PREMIUM AGORA
               <Smartphone className="h-5 w-5 ml-2" />
@@ -103,28 +121,23 @@ const Index = () => {
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {premiumFeatures.map((feature, index) => (
-              <div 
-                key={index} 
-                className="flex items-center space-x-3 p-4 bg-gray-900 rounded-lg border border-gray-800 hover:border-red-500 transition-colors"
-              >
+            {premiumFeatures.map((feature, index) => <div key={index} className="flex items-center space-x-3 p-4 bg-gray-900 rounded-lg border border-gray-800 hover:border-red-500 transition-colors">
                 <div className="text-red-500 flex-shrink-0">
                   {feature.icon}
                 </div>
                 <p className="text-gray-300 text-sm leading-relaxed">{feature.text}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-4 mb-12 max-w-lg mx-auto">
           <div className="text-center">
-            <div className="text-2xl font-bold text-red-500">50K+</div>
+            <div className="text-2xl font-bold text-red-500">1.000</div>
             <div className="text-gray-400 text-sm">Usuários</div>
           </div>
           <div className="text-center">
-            <div className="text-2xl font-bold text-red-500">4.9★</div>
+            <div className="text-2xl font-bold text-red-500">4.7★</div>
             <div className="text-gray-400 text-sm">Avaliação</div>
           </div>
           <div className="text-center">
@@ -138,8 +151,6 @@ const Index = () => {
           <p>© 2024 Direito 360° Premium. Todos os direitos reservados.</p>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
