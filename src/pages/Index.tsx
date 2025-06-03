@@ -90,7 +90,7 @@ const Index = () => {
         <div className="max-w-md mx-auto mb-12">
           <Card className="bg-gray-900 border-red-500 border p-6 text-center">
             <div className="mb-6">
-              <div className="text-4xl font-bold text-red-500 mb-2">R$ 49,99</div>
+              <div className="text-4xl font-bold text-red-500 mb-2">R$ 19,90</div>
               <div className="text-gray-300 text-sm">Pagamento único • Sem mensalidades</div>
             </div>
             
