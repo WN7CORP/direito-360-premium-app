@@ -70,9 +70,7 @@ const Index = () => {
         <div className="text-center mb-12">
           <div className="flex items-center justify-center mb-6">
             <Scale className="h-8 w-8 text-red-500 mr-3" />
-            <h1 className="text-3xl md:text-4xl font-bold text-white">
-              Direito 360°
-            </h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-white">Direito  </h1>
           </div>
           
           <div className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
@@ -80,17 +78,14 @@ const Index = () => {
             PREMIUM EDITION
           </div>
           
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            A plataforma jurídica mais completa do Brasil. 
-            Acesso ilimitado com pagamento único.
-          </p>
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">A plataforma jurídica de estudos. Acesso ilimitado com pagamento único.</p>
         </div>
 
         {/* Price Card */}
         <div className="max-w-md mx-auto mb-12">
           <Card className="bg-gray-900 border-red-500 border p-6 text-center">
             <div className="mb-6">
-              <div className="text-4xl font-bold text-red-500 mb-2">R$ 19,90</div>
+              <div className="text-4xl font-bold text-red-500 mb-2">R$ 39,90</div>
               <div className="text-gray-300 text-sm">Pagamento único • Sem mensalidades</div>
             </div>
             
