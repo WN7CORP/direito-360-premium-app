@@ -1,14 +1,16 @@
 
 import { useState, useEffect } from "react";
-import { Star, CheckCircle, Smartphone, Download, BookOpen, Headphones, Heart, FileText, GraduationCap, Scale, MapPin, Monitor, Crown, Shield, ArrowRight } from "lucide-react";
+import { Star, CheckCircle, Smartphone, Download, BookOpen, Headphones, Heart, FileText, GraduationCap, Scale, MapPin, Monitor, Crown, Shield, ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 
 const Index = () => {
   const [userAgent, setUserAgent] = useState("");
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setUserAgent(navigator.userAgent);
+    setIsVisible(true);
   }, []);
 
   const isAndroid = /Android/i.test(userAgent);
@@ -43,83 +45,88 @@ const Index = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="container mx-auto px-4 py-12 max-w-4xl">
-        {/* Header */}
-        <div className="text-center mb-16">
+    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white">
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        {/* Header with Animation */}
+        <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="flex items-center justify-center mb-6">
-            <Scale className="h-8 w-8 text-red-600 mr-3" />
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+            <div className="relative">
+              <Scale className="h-10 w-10 text-amber-400 mr-3 animate-pulse" />
+              <Sparkles className="h-4 w-4 text-amber-300 absolute -top-1 -right-1 animate-bounce" />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">
               Direito 360°
             </h1>
           </div>
           
-          <div className="inline-flex items-center bg-red-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+          <div className="inline-flex items-center bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
             <Crown className="h-4 w-4 mr-2" />
             PREMIUM EDITION
           </div>
           
-          <h2 className="text-xl md:text-2xl text-gray-700 mb-4 font-light">
-            A plataforma jurídica completa para estudos
+          <h2 className="text-xl md:text-2xl text-slate-300 mb-4 font-light leading-relaxed">
+            A plataforma jurídica completa para seus estudos
           </h2>
-          <p className="text-red-600 font-semibold">
+          <p className="text-amber-400 font-semibold text-lg">
             Acesso vitalício • Sem mensalidades
           </p>
         </div>
 
-        {/* Price Section */}
-        <div className="max-w-md mx-auto mb-16">
-          <Card className="p-8 text-center shadow-lg border-0 bg-gray-50">
+        {/* Price Section with Enhanced Design */}
+        <div className={`max-w-md mx-auto mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Card className="p-8 text-center shadow-2xl border-0 bg-gradient-to-br from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 hover:border-amber-500/30 transition-all duration-500">
             <div className="mb-8">
-              <div className="text-5xl font-bold text-red-600 mb-2">
+              <div className="text-6xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-3">
                 R$ 39,90
               </div>
-              <div className="text-gray-600 mb-2">
+              <div className="text-slate-300 text-lg mb-3">
                 Pagamento único
               </div>
-              <div className="text-green-600 text-sm font-medium">
-                ✓ Acesso vitalício garantido
+              <div className="flex items-center justify-center text-green-400 text-sm font-medium">
+                <CheckCircle className="h-4 w-4 mr-2" />
+                Acesso vitalício garantido
               </div>
             </div>
             
             <Button 
               onClick={handlePremiumClick} 
-              className="w-full bg-red-600 hover:bg-red-700 text-white font-semibold py-4 text-lg shadow-lg"
+              className="w-full bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold py-6 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group"
             >
-              <Crown className="h-5 w-5 mr-2" />
+              <Crown className="h-5 w-5 mr-2 group-hover:animate-bounce" />
               SER PREMIUM AGORA
-              <ArrowRight className="h-5 w-5 ml-2" />
+              <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
             </Button>
             
-            <div className="mt-6 flex items-center justify-center space-x-4 text-gray-500 text-sm">
-              <div className="flex items-center">
-                <Star className="h-4 w-4 mr-1 text-yellow-500" />
+            <div className="mt-6 flex items-center justify-center space-x-6 text-slate-400 text-sm">
+              <div className="flex items-center hover:text-amber-400 transition-colors duration-300">
+                <Star className="h-4 w-4 mr-1 text-yellow-400" />
                 <span>4.7 ⭐</span>
               </div>
-              <div className="flex items-center">
-                <Shield className="h-4 w-4 mr-1 text-green-500" />
+              <div className="flex items-center hover:text-green-400 transition-colors duration-300">
+                <Shield className="h-4 w-4 mr-1 text-green-400" />
                 <span>100% Seguro</span>
               </div>
             </div>
           </Card>
         </div>
 
-        {/* Features */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold text-center mb-12 text-gray-900">
-            Recursos <span className="text-red-600">Premium</span>
+        {/* Features with Staggered Animation */}
+        <div className={`mb-16 transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h3 className="text-3xl font-bold text-center mb-12 text-white">
+            Recursos <span className="bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent">Premium</span>
           </h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {premiumFeatures.map((feature, index) => (
               <div 
                 key={index} 
-                className="flex items-center space-x-3 p-4 bg-white border border-gray-200 rounded-lg hover:border-red-200 hover:shadow-md transition-all duration-200"
+                className={`flex items-center space-x-4 p-5 bg-slate-800/30 border border-slate-700/50 rounded-xl hover:bg-slate-700/30 hover:border-amber-500/30 transition-all duration-300 hover:scale-105 group ${isVisible ? 'animate-fade-in' : ''}`}
+                style={{ animationDelay: `${600 + index * 100}ms` }}
               >
-                <div className="text-red-600 flex-shrink-0">
+                <div className="text-amber-400 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                   {feature.icon}
                 </div>
-                <p className="text-gray-700 text-sm">
+                <p className="text-slate-200 text-sm group-hover:text-white transition-colors duration-300">
                   {feature.text}
                 </p>
               </div>
@@ -127,43 +134,43 @@ const Index = () => {
           </div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-3 gap-8 mb-16 max-w-lg mx-auto">
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-red-600 mb-1">10K+</div>
-            <div className="text-gray-600 text-sm">Usuários</div>
+        {/* Stats with Enhanced Styling */}
+        <div className={`grid grid-cols-3 gap-8 mb-16 max-w-lg mx-auto transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="text-center group hover:scale-110 transition-transform duration-300">
+            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-2">10K+</div>
+            <div className="text-slate-400 text-sm group-hover:text-slate-300 transition-colors duration-300">Usuários</div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-red-600 mb-1">4.7★</div>
-            <div className="text-gray-600 text-sm">Avaliação</div>
+          <div className="text-center group hover:scale-110 transition-transform duration-300">
+            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-2">4.7★</div>
+            <div className="text-slate-400 text-sm group-hover:text-slate-300 transition-colors duration-300">Avaliação</div>
           </div>
-          <div className="text-center">
-            <div className="text-2xl md:text-3xl font-bold text-red-600 mb-1">99%</div>
-            <div className="text-gray-600 text-sm">Aprovação</div>
+          <div className="text-center group hover:scale-110 transition-transform duration-300">
+            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-amber-400 to-orange-500 bg-clip-text text-transparent mb-2">99%</div>
+            <div className="text-slate-400 text-sm group-hover:text-slate-300 transition-colors duration-300">Aprovação</div>
           </div>
         </div>
 
-        {/* Final CTA */}
-        <div className="text-center">
-          <div className="bg-red-50 border border-red-100 rounded-xl p-8 max-w-2xl mx-auto">
-            <h4 className="text-xl font-semibold text-gray-900 mb-3">
+        {/* Final CTA with Enhanced Design */}
+        <div className={`text-center transition-all duration-1000 delay-900 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="bg-gradient-to-r from-slate-800/50 to-slate-900/50 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-8 max-w-2xl mx-auto hover:border-amber-500/30 transition-all duration-500">
+            <h4 className="text-2xl font-bold text-white mb-4">
               Transforme seus estudos jurídicos
             </h4>
-            <p className="text-gray-600 mb-6">
+            <p className="text-slate-300 mb-8 text-lg leading-relaxed">
               Junte-se a milhares de estudantes e profissionais que já escolheram a excelência
             </p>
             <Button 
               onClick={handlePremiumClick}
-              className="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3"
+              className="bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-white font-bold px-10 py-4 text-lg hover:scale-105 transition-all duration-300 group"
             >
-              <Smartphone className="h-4 w-4 mr-2" />
+              <Smartphone className="h-5 w-5 mr-2 group-hover:animate-bounce" />
               Começar Agora
             </Button>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="text-center text-gray-500 text-sm mt-16">
+        <div className="text-center text-slate-500 text-sm mt-16">
           <p>© 2024 Direito 360° Premium. Todos os direitos reservados.</p>
         </div>
       </div>
